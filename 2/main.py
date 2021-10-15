@@ -12,8 +12,14 @@ def trans(chr):
     return t + h + te + o
 
 
-text = list(map(lambda x: x.strip('.'), input().split()))
+text = open(input(), 'r').read().replace('\n', ' ').split()
 for i in range(len(text)):
-    if '.' not in text[i] and ',' not in text[i]:
-        text[i] = trans(int(text[i]))
+    if text[i].strip(',').strip('.').isdecimal():
+        if text[i][0] in '.,':
+            char = trans(int(text[i][1:])) + text[i][0]
+        if text[i][-1] in '.,':
+            char = trans(int(text[i][:-1])) + text[i][-1]
+        else:
+            char = trans(int(text[i]))
+        text[i] = char
 print(' '.join(text))
