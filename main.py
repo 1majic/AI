@@ -6,7 +6,7 @@ denc = ["cp866",
         "iso8859_5",
         "cp1251",
         'mac_cyrillic']
-nice_symb = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя0123456789,. ;!:'[]()"
+nice_symb = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyz0123456789_,. ;-?!:'[]()" + '"'
 
 filename = input()
 for i in denc:
@@ -19,7 +19,7 @@ for i in denc:
                     flag = False
                     break
             if flag:
-                print(fr[:2049])
+                print(fr[:2048])
                 break
     except Exception as e:
         continue
